@@ -6,6 +6,7 @@ import io.twba.bca.db.EntityBcaRepositoryJpaHelper;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class EntityBcaRepositoryJpa implements EntityBcaRepository {
 
@@ -27,7 +28,7 @@ public class EntityBcaRepositoryJpa implements EntityBcaRepository {
 
     @Override
     public List<EntityBca> findAll() {
-        return List.of();
+        return helper.findAll().stream().map(EntityBcaRepositoryJpa::toDomain).collect(Collectors.toList());
     }
 
     private static EntityBca toDomain(EntityBcaJpa entityBcaJpa) {

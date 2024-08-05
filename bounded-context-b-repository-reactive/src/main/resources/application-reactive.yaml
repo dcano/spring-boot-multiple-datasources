@@ -1,0 +1,12 @@
+spring:
+  r2dbc:
+    url: "r2dbc:postgresql://${POSTGRES_SERVICE_NAME}:${POSTGRES_SERVICE_PORT}/${POSTGRES_DB_NAME}"
+    username: ${POSTGRES_DB_USER}
+    password: ${POSTGRES_DB_PASSWORD}
+    pool:
+      enabled: true
+      max-size: 20
+    properties:
+      host: ${POSTGRES_SERVICE_NAME}
+      port: ${POSTGRES_SERVICE_PORT}
+      db-name: ${POSTGRES_DB_NAME}
